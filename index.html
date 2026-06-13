@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 2026 HUB | البث والترتيب الكامل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Readex+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --f1-red: #e10600;
+            --f1-black: #15151e;
+            --f1-dark: #0c0c12;
+            --f1-gray: #1f1f2a;
+            --f1-border: #2d2d3f;
+            --f1-light-gray: #949498;
+            --gold: #ffb703;
+            --silver: #d1d5db;
+            --bronze: #b07d62;
+            --f1-font: 'Orbitron', 'Readex Pro', sans-serif;
+            --gold-glow: rgba(255, 183, 3, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--f1-font);
+        }
+
+        body {
+            background-color: var(--f1-dark);
+            color: #ffffff;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 80% 20%, rgba(225, 6, 0, 0.07) 0%, transparent 60%);
+            padding-bottom: 60px;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--f1-black); }
+        ::-webkit-scrollbar-thumb { background: var(--f1-red); }
+
+        /* الهيدر */
+        .f1-header {
+            background: var(--f1-black);
+            border-bottom: 4px solid var(--f1-red);
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .header-container {
+            max-width: 1550px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .f1-logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .f1-indicator {
+            background: var(--f1-red);
+            color: white;
+            padding: 4px 16px;
+            font-weight: 900;
+            font-size: 22px;
+            transform: skewX(-15deg);
+            box-shadow: 3px 3px 0px #fff;
+        }
+
+        .f1-title h1 {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .live-pulse-badge {
+            background: rgba(225, 6, 0, 0.1);
+            border: 1px solid var(--f1-red);
+            padding: 8px 16px;
+            transform: skewX(-10deg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--f1-red);
+            border-radius: 50%;
+            animation: f1-pulse 1.2s infinite;
+        }
+
+        @keyframes f1-pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(225, 6, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 6, 0, 0); }
+        }
+
+        /* الكونتينر الرئيسي */
+        .main-container {
+            max-width: 1550px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* منطقة البث المباشر والـ Tabs */
+        .stream-section {
+            background: var(--f1-black);
+            border: 1px solid var(--f1-border);
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .stream-bar {
+            background: #1c1c24;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--f1-border);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stream-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        /* حاوية التبويبات والمجموعات */
+        .tabs-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-group {
+            display: flex;
+            background: var(--f1-dark);
+            padding: 3px;
+            border: 1px solid var(--f1-border);
+            border-radius: 4px;
+            gap: 2px;
+        }
+
+        .tab-label {
+            font-size: 11px;
+            color: var(--f1-light-gray);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .q-btn {
+            background: transparent;
+            border: none;
+            color: var(--f1-light-gray);
+            padding: 6px 14px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            transform: skewX(-10deg);
+            transition: all 0.2s ease;
+        }
+
+        .q-btn.active, .q-btn:hover {
+            background: var(--f1-red);
+            color: #fff;
+        }
+
+        .q-btn.backup-btn.active, .q-btn.backup-btn:hover {
+            background: #0077b6;
+            color: #fff;
+        }
+
+        .video-box {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+
+        video { width: 100%; height: 100%; object-fit: contain; }
+
+        /* التقسيم الرئيسي */
+        .f1-grid {
+            display: grid;
+            grid-template-columns: 1.65fr 1.35fr;
+            gap: 35px;
+        }
+
+        @media (max-width: 1250px) {
+            .f1-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        /* العناوين والخطوط الفاصلة */
+        .section-headline {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            position: relative;
+            padding-right: 15px;
+            border-right: 4px solid var(--f1-red);
+            letter-spacing: 0.5px;
+        }
+
+        /* العداد التنازلي الحي للملف الشخصي للسباق القادم */
+        .countdown-widget {
+            background: linear-gradient(135deg, #1c1c27 0%, var(--f1-black) 100%);
+            border: 1px solid var(--f1-border);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .countdown-text {
+            font-size: 13px;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .countdown-timer {
+            display: flex;
+            gap: 10px;
+        }
+        .countdown-segment {
+            background: var(--f1-dark);
+            border: 1px solid var(--f1-border);
+            padding: 6px 12px;
+            text-align: center;
+            min-width: 65px;
+            transform: skewX(-8deg);
+        }
+        .countdown-val {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--f1-red);
+            display: block;
+        }
+        .countdown-lbl {
+            font-size: 9px;
+            color: var(--f1-light-gray);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* قائمة السباقات */
+        .f1-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .race-strip {
+            background: var(--f1-black);
+            padding: 18px 22px;
+            display: grid;
+            grid-template-columns: 130px 2.2fr 2.2fr 80px;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid var(--f1-border);
+            border-right: 4px solid var(--f1-light-gray);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .race-strip:hover {
+            border-color: #44445c;
+            background: #191925;
+            transform: translateX(-3px);
+        }
+
+        .race-strip.testing-strip {
+            border-right-color: #ffaa00;
+            background: rgba(255, 170, 0, 0.01);
+        }
+
+        .race-strip.live-race {
+            border-right-color: var(--f1-red);
+            background: linear-gradient(270deg, rgba(225, 6, 0, 0.04) 0%, var(--f1-black) 100%);
+            box-shadow: 0 4px 20px rgba(225, 6, 0, 0.08);
+        }
+
+        .round-tag {
+            font-weight: 900;
+            color: var(--f1-light-gray);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        
+        .live-race .round-tag { color: var(--f1-red); }
+        .testing-strip .round-tag { color: #ffaa00; }
+
+        .race-date {
+            font-size: 12px;
+            color: var(--f1-light-gray);
+            margin-top: 5px;
+        }
+
+        .race-details {
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+        }
+
+        .race-country {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .race-name {
+            font-size: 11px;
+            color: var(--f1-light-gray);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        /* منصة التتويج */
+        .podium-showcase {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .podium-slot {
+            background: var(--f1-gray);
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 900;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid #2d2d3f;
+        }
+
+        .p-1 { border-bottom: 2px solid var(--gold); }
+        .p-2 { border-bottom: 2px solid var(--silver); }
+        .p-3 { border-bottom: 2px solid var(--bronze); }
+
+        .badge-p1 { color: var(--gold); }
+        .badge-p2 { color: var(--silver); }
+        .badge-p3 { color: var(--bronze); }
+
+        .race-status-badge {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 6px 14px;
+            transform: skewX(-10deg);
+            text-align: center;
+            justify-self: end;
+        }
+
+        .badge-finished { background: #22222f; color: var(--f1-light-gray); }
+        .badge-live { background: var(--f1-red); color: white; animation: blinker 1s linear infinite; font-weight: 900;}
+        .badge-up { background: #0077b6; color: #fff; }
+        .badge-test { background: #ffaa00; color: #000; font-weight: 900;}
+
+        @keyframes blinker { 50% { opacity: 0.5; } }
+
+        /* جداول الترتيب والمساحات الهندسية المحسنة */
+        .leaderboard-wrapper {
+            background: var(--f1-black);
+            padding: 24px;
+            border: 1px solid var(--f1-border);
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* أزرار تحويل الترتيب التفاعلية */
+        .leaderboard-switcher {
+            display: flex;
+            gap: 5px;
+            background: var(--f1-dark);
+            padding: 4px;
+            border: 1px solid var(--f1-border);
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .switch-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--f1-light-gray);
+            padding: 10px 15px;
+            font-weight: 800;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            transform: skewX(-8deg);
+            text-transform: uppercase;
+        }
+        .switch-btn.active {
+            background: var(--f1-red);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(225, 6, 0, 0.25);
+        }
+
+        .f1-styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .f1-styled-table th {
+            text-align: right;
+            padding: 12px 14px;
+            color: var(--f1-light-gray);
+            font-size: 11px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--f1-border);
+            letter-spacing: 0.5px;
+        }
+
+        .f1-styled-table td {
+            padding: 15px 14px;
+            border-bottom: 1px solid #1f1f2a;
+            font-size: 14px;
+            font-weight: 700;
+            vertical-align: middle;
+            transition: all 0.2s ease;
+        }
+
+        /* مؤثرات الوهج والتمرير المخصصة للفرق والسائقين */
+        .f1-styled-table tbody tr {
+            transition: all 0.2s ease;
+        }
+        .f1-styled-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: inset 4px 0 0 0 var(--hover-team-color, var(--f1-red));
+        }
+
+        /* توهج الصدارة الملكي الذهبي لـ P1 */
+        .leader-glow-row {
+            background: linear-gradient(90deg, var(--gold-glow) 0%, transparent 100%) !important;
+            position: relative;
+        }
+        .leader-glow-row td {
+            border-bottom-color: rgba(255, 183, 3, 0.3) !important;
+        }
+
+        .td-rank {
+            font-size: 15px;
+            font-weight: 900;
+            color: var(--f1-light-gray);
+            width: 60px;
+            text-align: center;
+        }
+
+        tr:nth-child(1) .td-rank { color: var(--gold); font-size: 17px;}
+        tr:nth-child(2) .td-rank { color: var(--silver); font-size: 16px;}
+        tr:nth-child(3) .td-rank { color: var(--bronze); font-size: 15px;}
+
+        .td-pts {
+            text-align: left;
+            font-size: 16px;
+            font-weight: 900;
+            color: #fff;
+            width: 80px;
+            padding-left: 20px !important;
+        }
+
+        /* حاوية تفاصيل السائق والفريق */
+        .driver-info-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .driver-name-box {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .driver-nat {
+            font-size: 10px;
+            background: #232332;
+            color: #c5c5d0;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-weight: 800;
+            display: inline-block;
+            margin-right: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .driver-team-sub {
+            font-size: 11px;
+            color: var(--f1-light-gray);
+            font-weight: 500;
+        }
+
+        .team-indicator {
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            border-radius: 1px;
+        }
+        
+        /* مؤشرات ألوان الفرق المتوقعة لـ 2026 هجينة بالكامل */
+        .team-mercedes { background-color: #27c4b1; --team-clr: #27c4b1; }
+        .team-ferrari { background-color: #e10600; --team-clr: #e10600; }
+        .team-mclaren { background-color: #ff8700; --team-clr: #ff8700; }
+        .team-redbull { background-color: #1e41ff; --team-clr: #1e41ff; }
+        .team-alpine { background-color: #0093cc; --team-clr: #0093cc; }
+        .team-racingbulls { background-color: #5e81ac; --team-clr: #5e81ac; }
+        .team-haas { background-color: #ffffff; --team-clr: #ffffff; }
+        .team-williams { background-color: #00a0e2; --team-clr: #00a0e2; }
+        .team-audi { background-color: #f50a37; --team-clr: #f50a37; }
+        .team-aston { background-color: #006643; --team-clr: #006643; }
+        .team-cadillac { background-color: #d4af37; --team-clr: #d4af37; }
+
+        @media (max-width: 900px) {
+            .race-strip {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                border-right: none;
+                border-bottom: 4px solid var(--f1-light-gray);
+                padding: 20px;
+            }
+            .race-strip.live-race { border-bottom-color: var(--f1-red); }
+            .race-strip.testing-strip { border-bottom-color: #ffaa00; }
+            .podium-showcase { flex-wrap: wrap; gap: 8px; }
+            .race-status-badge { justify-self: start; margin-top: 5px; }
+            .tabs-container { flex-direction: column; align-items: flex-start; gap: 15px; }
+        }
+    </style>
+    <script>
+    // ========== حماية المتصفح ومنع الـ Inspector ==========
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12') { e.preventDefault(); return false; }
+        if (e.ctrlKey && e.shiftKey && e.key === 'I') { e.preventDefault(); return false; }
+        if (e.ctrlKey && e.shiftKey && e.key === 'J') { e.preventDefault(); return false; }
+        if (e.ctrlKey && e.key === 'u') { e.preventDefault(); return false; }
+        if (e.ctrlKey && e.key === 's') { e.preventDefault(); return false; }
+        if (e.ctrlKey && e.shiftKey && e.key === 'C') { e.preventDefault(); return false; }
+    });
+    setInterval(function() {
+        const before = new Date().getTime();
+        debugger;
+        const after = new Date().getTime();
+        if (after - before > 100) {
+            document.body.innerHTML = '<div style="background:#000; color:#fff; display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column; text-align:center;"><h1 style="color:#e10600;">⚠️ تم تعطيل أدوات المطور</h1><p>يرجى إغلاق أدوات المطور وإعادة تحميل الصفحة</p></div>';
+        }
+    }, 1000);
+    window.addEventListener('load', function() {
+        const element = new Image();
+        Object.defineProperty(element, 'id', { get: function() { window.location.href = 'about:blank'; } });
+    });
+    console.log = function() {}; console.warn = function() {}; console.error = function() {};
+    const originalFetch = window.fetch;
+    window.fetch = function() { return Promise.reject(new Error('تم حظر الطلب')); };
+    document.addEventListener('copy', function(e) { e.preventDefault(); return false; });
+    Object.defineProperty(window, 'console', { get: function() { return {}; } });
+</script>
+</head>
+<body>
+
+    <header class="f1-header">
+        <div class="header-container">
+            <div class="f1-logo-area">
+                <div class="f1-indicator">F1</div>
+                <div class="f1-title"><h1>2026 RACE CENTER</h1></div>
+            </div>
+            <div class="live-pulse-badge">
+                <div class="pulse-dot"></div>
+                <span style="font-weight: 800; font-size: 13px;">بث متعدد الخيارات والمصادر</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- البث المباشر المحدث بالجودات والسيرفرات كاملة -->
+        <div class="stream-section">
+            <div class="stream-bar">
+                <div class="stream-title"><span style="color: var(--f1-red);">●</span> مشغل البث الهجين التلقائي</div>
+                
+                <div class="tabs-container">
+                    <div class="tab-wrapper">
+                        <span class="tab-label">السيرفر الأساسي:</span>
+                        <div class="tab-group">
+                            <button class="q-btn" onclick="changeStream('main_480', this)">480p</button>
+                            <button class="q-btn" onclick="changeStream('main_720', this)">720p</button>
+                            <button class="q-btn active" onclick="changeStream('main_1080', this)">1080p</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-wrapper">
+                        <span class="tab-label" style="color: #0077b6;">المصادر الاحتياطية:</span>
+                        <div class="tab-group" style="border-color: #0077b6;">
+                            <button class="q-btn backup-btn" onclick="changeStream('backup1', this)">سيرفر A</button>
+                            <button class="q-btn backup-btn" onclick="changeStream('backup2', this)">سيرفر B</button>
+                            <button class="q-btn backup-btn" onclick="changeStream('backup3', this)">سيرفر C</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-box">
+                <video id="f1Player" controls autoplay playsinline></video>
+            </div>
+        </div>
+
+        <div class="f1-grid">
+            
+            <!-- اليمين: الأجندة والجدول الزمني + العداد التنازلي المضاف حديثاً -->
+            <div>
+                <div class="countdown-widget">
+                    <div class="countdown-text">
+                        <span style="color: var(--f1-red); font-size: 18px;">⏳</span>
+                        <div>
+                            <span style="display:block; font-weight:900;">السباق القادم: جولة النمسا 2026</span>
+                            <span style="font-size:10px; color: var(--f1-light-gray);">باقي على انطلاق مرحلة التجارب الحرة الأولى</span>
+                        </div>
+                    </div>
+                    <div class="countdown-timer" id="f1Countdown">
+                        <div class="countdown-segment"><span class="countdown-val" id="cd-days">00</span><span class="countdown-lbl">أيام</span></div>
+                        <div class="countdown-segment"><span class="countdown-val" id="cd-hours">00</span><span class="countdown-lbl">ساعة</span></div>
+                        <div class="countdown-segment"><span class="countdown-val" id="cd-mins">00</span><span class="countdown-lbl">دقيقة</span></div>
+                        <div class="countdown-segment"><span class="countdown-val" id="cd-secs">00</span><span class="countdown-lbl">ثانية</span></div>
+                    </div>
+                </div>
+
+                <h2 class="section-headline">جدول جولات ومواعيد موسم 2026 الكامل</h2>
+                <div class="f1-timeline" id="racesTimeline"></div>
+            </div>
+
+            <!-- اليسار: جدول الترتيب الديناميكي المتطور -->
+            <div>
+                <div class="leaderboard-wrapper">
+                    <div class="leaderboard-switcher">
+                        <button class="switch-btn active" id="btnDrivers" onclick="toggleLeaderboard('drivers')">ترتيب السائقين</button>
+                        <button class="switch-btn" id="btnConstructors" onclick="toggleLeaderboard('constructors')">ترتيب الصانعين (الفرق)</button>
+                    </div>
+
+                    <h2 class="section-headline" id="tableTitle" style="font-size: 16px; margin-bottom: 15px;">ترتيب السائقين الكامل 2026</h2>
+                    <table class="f1-styled-table">
+                        <thead>
+                            <tr id="tableHeader">
+                                <!-- سيتم حقن العناوين تلقائياً -->
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardTableBody">
+                            <!-- سيتم حقن الداتا ديناميكياً هنا -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const streams = {
+            'main_480': 'https://ogilbert.s3.us-east-1.amazonaws.com/btsport_480p30.m3u8',
+            'main_720': 'https://ogilbert.s3.us-east-1.amazonaws.com/btsport_720p30.m3u8',
+            'main_1080': 'https://ogilbert.s3.us-east-1.amazonaws.com/btsport_1080p30.m3u8',
+            'backup1': 'https://a49.azplay34.me/hls/streama260972/index.m3u8?cst=7edee5737744a5e6518c918ab2999fc9',
+            'backup2': 'https://a75.azplay34.me/hls/streama237328/index.m3u8?cst=80014c4db8b4428de436b0d04c2b7a37',
+            'backup3': 'https://a80.azplay34.me/hls/streama242736/index.m3u8?cst=6adaf81b1f6d30cf57e11d7ff590e7f7'
+        };
+
+        const player = document.getElementById('f1Player');
+        player.src = streams['main_1080'];
+
+        function changeStream(key, btnElement) {
+            document.querySelectorAll('.q-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+            player.src = streams[key];
+            player.load();
+            player.play().catch(e => {});
+        }
+
+        const allRaces = [
+            { round: "TESTING 1", country: "البحرين", name: "FORMULA 1 ARAMCO PRE-SEASON TESTING 1 2026", date: "11 - 13 Feb", status: "testing" },
+            { round: "TESTING 2", country: "البحرين", name: "FORMULA 1 ARAMCO PRE-SEASON TESTING 2 2026", date: "18 - 20 Feb", status: "testing" },
+            { round: "ROUND 1", country: "أستراليا", name: "FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026", date: "06 - 08 Mar", status: "finished", p1: "RUS", p2: "ANT", p3: "LEC" },
+            { round: "ROUND 2", country: "الصين", name: "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026", date: "13 - 15 Mar", status: "finished", p1: "ANT", p2: "RUS", p3: "HAM" },
+            { round: "ROUND 3", country: "اليابان", name: "FORMULA 1 ARAMCO JAPANESE GRAND PRIX 2026", date: "27 - 29 Mar", status: "finished", p1: "ANT", p2: "PIA", p3: "LEC" },
+            { round: "ROUND 4", country: "ميامي", name: "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026", date: "01 - 03 May", status: "finished", p1: "ANT", p2: "NOR", p3: "PIA" },
+            { round: "ROUND 5", country: "كندا", name: "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026", date: "22 - 24 May", status: "finished", p1: "ANT", p2: "HAM", p3: "VER" },
+            { round: "ROUND 6", country: "موناكو", name: "FORMULA 1 LOUIS VUITTON GRAND PRIX DE MONACO 2026", date: "05 - 07 Jun", status: "finished", p1: "ANT", p2: "HAM", p3: "GAS" },
+            { round: "ROUND 7", country: "برشلونة", name: "FORMULA 1 MSC CRUISES GRAN PREMIO DE BARCELONA-CATALUNYA 2026", date: "12 - 14 Jun", status: "live" },
+            { round: "ROUND 8", country: "النمسا", name: "FORMULA 1 LENOVO AUSTRIAN GRAND PRIX 2026", date: "26 - 28 Jun", status: "upcoming" },
+            { round: "ROUND 9", country: "بريطانيا العظمى", name: "FORMULA 1 PIRELLI BRITISH GRAND PRIX 2026", date: "03 - 05 Jul", status: "upcoming" },
+            { round: "ROUND 10", country: "بلجيكا", name: "FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2026", date: "17 - 19 Jul", status: "upcoming" },
+            { round: "ROUND 11", country: "المجر", name: "FORMULA 1 AWS HUNGARIAN GRAND PRIX 2026", date: "24 - 26 Jul", status: "upcoming" },
+            { round: "ROUND 12", country: "هولندا", name: "FORMULA 1 HEINEKEN DUTCH GRAND PRIX 2026", date: "21 - 23 Aug", status: "upcoming" },
+            { round: "ROUND 13", country: "إيطاليا", name: "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2026", date: "04 - 06 Sep", status: "upcoming" },
+            { round: "ROUND 14", country: "إسبانيا", name: "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026", date: "11 - 13 Sep", status: "upcoming" },
+            { round: "ROUND 15", country: "أذربيجان", name: "FORMULA 1 QATAR AIRWAYS AZERBAIJAN GRAND PRIX 2026", date: "24 - 26 Sep", status: "upcoming" },
+            { round: "ROUND 16", country: "سنغافورة", name: "FORMULA 1 SINGAPORE AIRLINES SINGAPORE GRAND PRIX 2026", date: "09 - 11 Oct", status: "upcoming" },
+            { round: "ROUND 17", country: "الولايات المتحدة", name: "FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2026", date: "23 - 25 Oct", status: "upcoming" },
+            { round: "ROUND 18", country: "المكسيك", name: "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026", date: "30 Oct - 01 Nov", status: "upcoming" },
+            { round: "ROUND 19", country: "البرازيل", name: "FORMULA 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026", date: "06 - 08 Nov", status: "upcoming" },
+            { round: "ROUND 20", country: "لاس فيغاس", name: "FORMULA 1 HEINEKEN LAS VEGAS GRAND PRIX 2026", date: "19 - 21 Nov", status: "upcoming" },
+            { round: "ROUND 21", country: "قطر", name: "FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX 2026", date: "27 - 29 Nov", status: "upcoming" },
+            { round: "ROUND 22", country: "أبو ظبي", name: "FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2026", date: "04 - 06 Dec", status: "upcoming" }
+        ];
+
+        const fullDriversStandings = [
+            { pos: 1, name: "Kimi Antonelli", nat: "ITA", team: "Mercedes", css: "team-mercedes", pts: 156 },
+            { pos: 2, name: "Lewis Hamilton", nat: "GBR", team: "Ferrari", css: "team-ferrari", pts: 90 },
+            { pos: 3, name: "George Russell", nat: "GBR", team: "Mercedes", css: "team-mercedes", pts: 88 },
+            { pos: 4, name: "Charles Leclerc", nat: "MON", team: "Ferrari", css: "team-ferrari", pts: 75 },
+            { pos: 5, name: "Oscar Piastri", nat: "AUS", team: "McLaren", css: "team-mclaren", pts: 58 },
+            { pos: 6, name: "Lando Norris", nat: "GBR", team: "McLaren", css: "team-mclaren", pts: 58 },
+            { pos: 7, name: "Max Verstappen", nat: "NED", team: "Red Bull Racing", css: "team-redbull", pts: 43 },
+            { pos: 8, name: "Pierre Gasly", nat: "FRA", team: "Alpine", css: "team-alpine", pts: 35 },
+            { pos: 9, name: "Isack Hadjar", nat: "FRA", team: "Red Bull Racing", css: "team-redbull", pts: 26 },
+            { pos: 10, name: "Liam Lawson", nat: "NZL", team: "Racing Bulls", css: "team-racingbulls", pts: 24 },
+            { pos: 11, name: "Oliver Bearman", nat: "GBR", team: "Haas F1 Team", css: "team-haas", pts: 18 },
+            { pos: 12, name: "Franco Colapinto", nat: "ARG", team: "Alpine", css: "team-alpine", pts: 15 },
+            { pos: 13, name: "Arvid Lindblad", nat: "GBR", team: "Racing Bulls", css: "team-racingbulls", pts: 11 },
+            { pos: 14, name: "Carlos Sainz", nat: "ESP", team: "Williams", css: "team-williams", pts: 6 },
+            { pos: 15, name: "Alexander Albon", nat: "THA", team: "Williams", css: "team-williams", pts: 5 },
+            { pos: 16, name: "Esteban Ocon", nat: "FRA", team: "Haas F1 Team", css: "team-haas", pts: 3 },
+            { pos: 17, name: "Gabriel Bortoleto", nat: "BRA", team: "Audi", css: "team-audi", pts: 2 },
+            { pos: 18, name: "Fernando Alonso", nat: "ESP", team: "Aston Martin", css: "team-aston", pts: 1 },
+            { pos: 19, name: "Nico Hulkenberg", nat: "GER", team: "Audi", css: "team-audi", pts: 0 },
+            { pos: 20, name: "Valtteri Bottas", nat: "FIN", team: "Cadillac", css: "team-cadillac", pts: 0 },
+            { pos: 21, name: "Sergio Perez", nat: "MEX", team: "Cadillac", css: "team-cadillac", pts: 0 },
+            { pos: 22, name: "Lance Stroll", nat: "CAN", team: "Aston Martin", css: "team-aston", pts: 0 }
+        ];
+
+        // حقن التايم لاين بالكامل
+        const timeline = document.getElementById('racesTimeline');
+        allRaces.forEach(r => {
+            const strip = document.createElement('div');
+            let typeClass = '';
+            if(r.status === 'live') typeClass = 'live-race';
+            if(r.status === 'testing') typeClass = 'testing-strip';
+            strip.className = `race-strip ${typeClass}`;
+            
+            let statusBadge = '';
+            let podiumBox = '';
+
+            if(r.status === 'finished') {
+                statusBadge = `<span class="race-status-badge badge-finished">منتهي</span>`;
+                podiumBox = `
+                    <div class="podium-showcase">
+                        <div class="podium-slot p-1"><span class="badge-p1">1</span> ${r.p1}</div>
+                        <div class="podium-slot p-2"><span class="badge-p2">2</span> ${r.p2}</div>
+                        <div class="podium-slot p-3"><span class="badge-p3">3</span> ${r.p3}</div>
+                    </div>
+                `;
+            } else if(r.status === 'live') {
+                statusBadge = `<span class="race-status-badge badge-live">LIVE</span>`;
+                podiumBox = `<div style="color: var(--f1-red); font-size:12px; font-weight:800;">السباق جاري الآن مباشر</div>`;
+            } else if(r.status === 'testing') {
+                statusBadge = `<span class="race-status-badge badge-test">تجارب</span>`;
+                podiumBox = `<div style="color: #ffaa00; font-size:12px;">انتهت فترة الاختبارات والتجهيز</div>`;
+            } else {
+                statusBadge = `<span class="race-status-badge badge-up">قريباً</span>`;
+                podiumBox = `<div style="color: var(--f1-light-gray); font-size:12px;">في انتظار بدء عطلة السباق</div>`;
+            }
+
+            strip.innerHTML = `
+                <div>
+                    <div class="round-tag">${r.round}</div>
+                    <div class="race-date">${r.date}</div>
+                </div>
+                <div class="race-details">
+                    <span class="race-country">${r.country}</span>
+                    <span class="race-name">${r.name}</span>
+                </div>
+                ${podiumBox}
+                ${statusBadge}
+            `;
+            timeline.appendChild(strip);
+        });
+
+        // احتساب داتا الصانعين تلقائياً وبدقة متناهية من نقاط السائقين لعام 2026
+        function getConstructorsStandings() {
+            const map = {};
+            fullDriversStandings.forEach(d => {
+                if(!map[d.team]) {
+                    map[d.team] = { team: d.team, css: d.css, pts: 0 };
+                }
+                map[d.team].pts += d.pts;
+            });
+            return Object.values(map).sort((a,b) => b.pts - a.pts).map((item, index) => {
+                item.pos = index + 1;
+                return item;
+            });
+        }
+
+        // التبديل الديناميكي المستقر والآمن للجدول
+        function toggleLeaderboard(type) {
+            const body = document.getElementById('leaderboardTableBody');
+            const header = document.getElementById('tableHeader');
+            const title = document.getElementById('tableTitle');
+            
+            document.getElementById('btnDrivers').classList.remove('active');
+            document.getElementById('btnConstructors').classList.remove('active');
+
+            body.innerHTML = "";
+
+            if(type === 'drivers') {
+                document.getElementById('btnDrivers').classList.add('active');
+                title.innerText = "ترتيب السائقين الكامل 2026";
+                header.innerHTML = `
+                    <th style="text-align: center;">المركز</th>
+                    <th>السائق</th>
+                    <th style="text-align: left; padding-left: 20px;">النقاط</th>
+                `;
+
+                fullDriversStandings.forEach(d => {
+                    const isLeader = d.pos === 1 ? 'leader-glow-row' : '';
+                    const indicatorEl = document.createElement('div');
+                    indicatorEl.className = `team-indicator ${d.css}`;
+                    const teamColor = window.getComputedStyle(indicatorEl).backgroundColor || '#e10600';
+
+                    body.innerHTML += `
+                        <tr class="${isLeader}" style="--hover-team-color: ${teamColor};">
+                            <td class="td-rank">${d.pos}</td>
+                            <td>
+                                <div class="driver-info-container">
+                                    <span class="team-indicator ${d.css}"></span>
+                                    <div class="driver-name-box">
+                                        <div>
+                                            <span style="color:#fff; font-weight:700;">${d.name}</span>
+                                            <span class="driver-nat">${d.nat}</span>
+                                        </div>
+                                        <span class="driver-team-sub">${d.team}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td-pts">${d.pts}</td>
+                        </tr>
+                    `;
+                });
+            } else {
+                document.getElementById('btnConstructors').classList.add('active');
+                title.innerText = "ترتيب الصانعين والفرق 2026";
+                header.innerHTML = `
+                    <th style="text-align: center;">المركز</th>
+                    <th>الفريق / الصانع</th>
+                    <th style="text-align: left; padding-left: 20px;">النقاط</th>
+                `;
+
+                const constructors = getConstructorsStandings();
+                constructors.forEach(c => {
+                    const isLeader = c.pos === 1 ? 'leader-glow-row' : '';
+                    const indicatorEl = document.createElement('div');
+                    indicatorEl.className = `team-indicator ${c.css}`;
+                    const teamColor = window.getComputedStyle(indicatorEl).backgroundColor || '#e10600';
+
+                    body.innerHTML += `
+                        <tr class="${isLeader}" style="--hover-team-color: ${teamColor};">
+                            <td class="td-rank">${c.pos}</td>
+                            <td>
+                                <div class="driver-info-container">
+                                    <span class="team-indicator ${c.css}" style="height: 20px; width: 6px;"></span>
+                                    <span style="color:#fff; font-weight:800; font-size:15px;">${c.team}</span>
+                                </div>
+                            </td>
+                            <td class="td-pts">${c.pts}</td>
+                        </tr>
+                    `;
+                });
+            }
+        }
+
+        // تشغيل الجدول الافتراضي أول مرة للسائقين
+        toggleLeaderboard('drivers');
+
+        // العداد التنازلي لسباق النمسا (26 يونيو 2026)
+        function initCountdown() {
+            const targetDate = new Date("June 26, 2026 14:00:00").getTime();
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    document.getElementById('f1Countdown').innerHTML = "<div style='color:var(--f1-red); font-weight:900; font-size:14px; padding:10px;'>عطلة السباق بدأت بالفعل!</div>";
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+                document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('cd-mins').innerText = String(mins).padStart(2, '0');
+                document.getElementById('cd-secs').innerText = String(secs).padStart(2, '0');
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        initCountdown();
+    </script>
+</body>
+</html>
