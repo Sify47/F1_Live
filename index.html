@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 2026 HUB | البث والترتيب الكامل</title>
+    <title>F1 2026 | البث مباشر</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Readex+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -609,9 +609,12 @@
                     <div class="tab-wrapper">
                         <span class="tab-label">السيرفر الأساسي:</span>
                         <div class="tab-group">
-                            <button class="q-btn" onclick="changeStream('main_480', this)">480p</button>
-                            <button class="q-btn" onclick="changeStream('main_720', this)">720p</button>
-                            <button class="q-btn active" onclick="changeStream('main_1080', this)">1080p</button>
+                            <button class="q-btn active" onclick="changeStream('main_480', this)">English 480p</button>
+                            <button class="q-btn" onclick="changeStream('main_720', this)">English 720p</button>
+                            <button class="q-btn " onclick="changeStream('main_1080', this)">English 1080p</button>
+                            <button class="q-btn " onclick="changeStream('b8_sd', this)">Bein 8 SD</button>
+                            <button class="q-btn " onclick="changeStream('b8_hd', this)">Bein 8 HD</button>
+                            <button class="q-btn " onclick="changeStream('b8_fhd', this)">Bein 8 FHD</button>
                         </div>
                     </div>
                     
@@ -686,7 +689,10 @@
             'main_1080': 'https://ogilbert.s3.us-east-1.amazonaws.com/btsport_1080p30.m3u8',
             'backup1': 'https://a49.azplay34.me/hls/streama260972/index.m3u8?cst=7edee5737744a5e6518c918ab2999fc9',
             'backup2': 'https://a75.azplay34.me/hls/streama237328/index.m3u8?cst=80014c4db8b4428de436b0d04c2b7a37',
-            'backup3': 'https://a80.azplay34.me/hls/streama242736/index.m3u8?cst=6adaf81b1f6d30cf57e11d7ff590e7f7'
+            'backup3': 'https://a80.azplay34.me/hls/streama242736/index.m3u8?cst=6adaf81b1f6d30cf57e11d7ff590e7f7',
+            'b8_sd': 'http://103.205.17.194:8080/live/MohammadDahdal/59732683/228983.m3u8?token=HRVfWENfFAMTWVNTCFdVAgACUwZXBgsCA1BbAwQAWFBRUlQLVlUHWgdDGhBKF0ZQUF48X1UVAgECWwANBh0bRxVSRWZZUxQDE1AABQtRFhkTRhBTQ2hRQxJZGwQABRcDXgQZDAIZBAgAQxoQTBBRR25SBFNfQxoJEi5WT1xdVVM6GAIXABceblgPUl1OEBR7ZRNSBh8HAxNnClcDAQoZSlADHhlxR0ZVVDZTUHIKQGkeBlABHwQOExgocWF4fRUSCl5cXBBwU1paDh8SegtGWlxWPxkAAwEdAE0JGwURalMAVkVQbBgDCgZPBQQbTxZBWF4GFAsHFBFACl0XDxMIB1UEAA8DFRobVBlCV0sNVVluVwZAWFRdEQoNTFlZHRtdCGhTXF1WWF0TWxQCG08WXEJDQQxfQlRfHEFbXEFDWEYDFQ0bCQYDGx1DVV1MDUBHSBFZFHRwGh8SBkFBUF9KWwlZFQMSWgVMCUMaEFsKQEdQRwZpRU5IVhJZGxcZE1BBOUVSSkRFU1hcBEQQA0EEFx0RAlVFXk5WbwBWW0YTAxBXFRsbXVZOZlIOWFxcAEBcXl0QFAsVCREcQVRaW1hNXRRoR1BUFQwbAlMFBw1UBRdM',
+            'b8_hd': 'http://103.205.17.194:8080/live/MohammadDahdal/59732683/177160.m3u8?token=HRVfWENfFAMTU1ICDVVVBQgBVAEEBAkBBFoKVFdUCgUHBQUJUQMHDwhDGhBKF0ZQUF48X1UVAgIHVAgDBR0bRxVSRWZZUxQDE1AABQtRFhkTRhBTQ2hRQxJZGwQABRcDXgQZDAIZBAgAQxoQTBBRR25SBFNfQxoJEi5WT1xdVVM6GAIXABceblgPUl1OEBR7ZRNSBh8HAxNnClcDAQoZSlADHhlxR0ZVVDZTUHIKQGkeBlABHwQOExgocWF4fRUSCl5cXBBwU1paDh8SegtGWlxWPxkAAwEdAE0JGwURalMAVkVQbBgDCgZPBQQbTxZBWF4GFAsHFBFACl0XDxMLB1UOAA8CFRobVBlCV0sNVVluVwZAWFRdEQoNTFlZHRtdCGhTXF1WWF0TWxQCG08WXEJDQQxfQlRfHEFbXEFDWEYDFQ0bAQADDxNNFFFWFlpBQ0pBDBNyfxEcQVxNQVRXQQ9YWRsKFVsKRFkUHhsBXUFDUhdTbkNBQ1VBAxcXHRtbFWhFXENDRFxQDFNAG1kWBRMfQVdSQ1FFVTxaWltCGwhEBhUVElpXQW4CWVxXBldBWFwNRRMNGgISTxtYWl9QRglFaElZUxQDE1IEAQ9aAwATTg==',
+            'b8_fhd': 'http://103.205.17.194:8080/live/MohammadDahdal/59732683/228957.m3u8?token=HRVfWENfFAMTVwVQX1JXBAQGWgJXUQ8GBFABAw0CAFMEUQBaUQMEC1JDGhBKF0ZQUF48X1UVAgECWwAAAh0bRxVSRWZZUxQDE1AABQtRFhkTRhBTQ2hRQxJZGwQABRcDXgQZDAIZBAgAQxoQTBBRR25SBFNfQxoJEi5WT1xdVVM6GAIXABceblgPUl1OEBR7ZRNSBh8HAxNnClcDAQoZSlADHhlxR0ZVVDZTUHIKQGkeBlABHwQOExgocWF4fRUSCl5cXBBwU1paDh8SegtGWlxWPxkAAwEdAE0JGwURalMAVkVQbBgDCgZPBQQbTxZBWF4GFAsHFBFACl0XDxMIB1UDBA0IFRobVBlCV0sNVVluVwZAWFRdEQoNTFlZHRtdCGhTXF1WWF0TWxQCG08WXEJDQQxfQlRfHEFbXEFDWEYDFQ0bCQUBDRNNFFFWFlpBQ0pBDBNyfxEcQVxNQVRXQQ9YWRsKFVsKRFkUHhsBXUFDUhdTbkNBQ1VBAxcXHRtbFWhFXENDRFxQDFNAG1kWBRMfQVdSQ1FFVTxaWltCGwhEBhUVElpXQW4CWVxXBldBWFwNRRMNGgISTxtYWl9QRglFaElZUxQDE1IEBglSDQATTg==',
         };
 
         const player = document.getElementById('f1Player');
